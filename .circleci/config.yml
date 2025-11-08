@@ -23,7 +23,7 @@ jobs:
           path: ~/project/
       - node/install:
           node-version: '20.9'
-      - run: node --version 
+      - run: node --version
       - run: npm i -g @railway/cli
       - run:
           name: Deploy to Railway App
@@ -31,7 +31,6 @@ jobs:
             cd bankchurn-api
             railway up --service=pacific-clarity
             railway up --detach
-
 
 tags_only: &tags_only
   filters:
@@ -49,3 +48,4 @@ workflows:
             branches:
               only:
                 - main
+
