@@ -32,20 +32,9 @@ jobs:
             railway up --service=giving-vitality
             railway up --detach
 
-tags_only: &tags_only
-  filters:
-    branches:
-      ignore: /.*/
-    tags:
-      only: /^.*/
-
 workflows:
   version: 1
   deploy_pipeline:
     jobs:
-      - deploy_app_to_railway:
-          filters:
-            branches:
-              only:
-                - main
+      - deploy_app_to_railway
 
