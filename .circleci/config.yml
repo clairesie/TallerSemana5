@@ -23,7 +23,7 @@ jobs:
           path: ~/project/
       - node/install:
           node-version: '20.9'
-      - run: node --version 
+      - run: node --version
       - run: npm i -g @railway/cli
       - run:
           name: Deploy to Railway App
@@ -31,21 +31,10 @@ jobs:
             cd bankchurn-api
             railway up --project $RAILWAY_PROJECT_ID --service $RAILWAY_SERVICE_ID --ci --detach
 
-
-
-tags_only: &tags_only
-  filters:
-    branches:
-      ignore: /.*/
-    tags:
-      only: /^.*/
-
 workflows:
   version: 1
   deploy_pipeline:
     jobs:
-      - deploy_app_to_railway:
-          filters:
-            branches:
-              only:
-                - main
+      - deploy_app_to_railway
+
+
